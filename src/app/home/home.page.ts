@@ -10,6 +10,7 @@ import {
   IonText,
   IonToggle,
 } from '@ionic/angular/standalone';
+import { CapacitorFlash } from '@capgo/capacitor-flash';
 
 @Component({
   selector: 'app-home',
@@ -32,5 +33,12 @@ export class HomePage {
 
   constructor() {}
 
-  flash() {}
+  flash() {
+    this.isActive = !this.isActive;
+    if (this.isActive) {
+      CapacitorFlash.switchOn({ intensity: 100 });
+    } else {
+      CapacitorFlash.switchOff();
+    }
+  }
 }
